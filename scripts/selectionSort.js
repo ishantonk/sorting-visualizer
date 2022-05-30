@@ -1,5 +1,12 @@
 let selection = document.getElementById("selectionSort");
+let mobileSelection = document.getElementById("mobile-selectionSort");
 selection.addEventListener("click", selectionSort);
+mobileSelection.addEventListener("click", mobileSelectionSort);
+
+function mobileSelectionSort() {
+    toggleMenu();
+    selectionSort();
+}
 
 function selectionSort() {
     //Setting Time complexities

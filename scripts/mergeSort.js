@@ -1,5 +1,12 @@
 let merge = document.getElementById("mergeSort");
+let mobileMerge = document.getElementById("mobile-mergeSort");
 merge.addEventListener("click", mergeSort);
+mobileMerge.addEventListener("click", mobileMergeSort);
+
+function mobileMergeSort() {
+    toggleMenu();
+    mergeSort();
+}
 
 
 function mergeSort() {

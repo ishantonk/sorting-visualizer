@@ -25,13 +25,15 @@
 </head>
 
 <body>
-    <header>
-        <nav class='bg-primary1 text-primary3'>
-            <div id="nav-wrapper" class='container flex font-bold h-30'>
-                <div id="nav-logo" class='h-2/3 w-60 m-5 mr-auto text-4xl font-mono'><a href="#">Sorting
+    <header class="relative">
+        <nav class='bg-primary1 text-primary3 sticky z-50'>
+            <div id="nav-wrapper" class='container flex font-bold h-18 md:30 lg:30'>
+                <div id="nav-logo"
+                    class='h-2/3 w-20 md:w-50 lg:w-60 m-1 md:m-3 lg:m-5 mr-auto text-l md:text-2xl lg:text-3xl font-mono'>
+                    <a href="#">Sorting
                         Visualizer</a>
                 </div>
-                <div id='nav-algo-options' class='m-auto gap-2'>
+                <div id='nav-algo-options' class='m-auto gap-2 hidden md:hidden lg:flex'>
                     <button id="bubbleSort"
                         class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'>Bubble</button>
                     <button id="selectionSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
@@ -45,7 +47,7 @@
                     <button id="heapSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
                         onclick="bubbleSort">Heap</button>
                 </div>
-                <div id='nav-ctrl' class='m-auto ml-auto flex'>
+                <div id='nav-ctrl' class='m-auto ml-auto hidden md:flex lg:flex'>
                     <button id="array-shuffle"
                         class="font-bold m-4 py-2 px-4 rounded hover:bg-primary2 transition-all">Shuffle
                         Array</button>
@@ -58,16 +60,58 @@
                             value="4" />
                     </div>
                 </div>
+                <div class="flex m-3 md:hidden lg:hidden" >
+                    <button id="mobile-menu-toggle" class="flex">
+                        <div class="space-y-1.5 p-1">
+                            <span class="block w-2 h-0.5 bg-primary3"></span>
+                            <span class="block w-5 h-0.5 bg-primary3"></span>
+                            <span class="block w-6 h-0.5 bg-primary3"></span>
+                        </div>
+                    </button>
+                </div>
+
             </div>
         </nav>
+        <div id="mobile-menu" class="bg-primary2 absolute inset-0 -bottom-64 z-10 transition-all duration-300 -translate-y-64">
+            <div id='nav-algo-options-mobile' class='flex flex-row flex-wrap justify-center mt-16 gap-2'>
+                <button id="mobile-bubbleSort"
+                    class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'>Bubble</button>
+                <button id="mobile-selectionSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
+                    onclick="bubbleSort">Selection</button>
+                <button id="mobile-insertionSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
+                    onclick="bubbleSort">Insertion</button>
+                <button id="mobile-mergeSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
+                    onclick="bubbleSort">Merge</button>
+                <button id="mobile-quickSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
+                    onclick="bubbleSort">Quick</button>
+                <button id="mobile-heapSort" class='font-bold py-2 px-4 rounded hover:bg-primary2 transition-all'
+                    onclick="bubbleSort">Heap</button>
+            </div>
+
+            <div id='nav-ctrl' class='m-2 my-5 flex'>
+                <button id="mobile-array-shuffle"
+                    class="font-bold m-4 py-2 px-4 rounded hover:bg-primary2 transition-all">Shuffle
+                    Array</button>
+                <div>
+                    <p class="font-semibold">Size of array</p>
+                    <input id='mobile-array-size' class='accent-primary3' type="range" min="5" max="50" step="1"
+                        value="50" />
+                    <p class="font-semibold">Speed</p>
+                    <input id='mobile-array-update-speed' class='accent-primary3' type="range" min="1" max="5" step="1"
+                        value="4" />
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="bg-secondary2 text-secondary1 h-[calc(100vh-120px)]">
-        <section class='flex w-full'>
-            <div id="array-wrapper" class='container flex w-2/3 m-5 h-[32rem] origin-center rotate-180'>
+    <main class="bg-secondary2 text-secondary1 min-h-[calc(100vh-120px)] h-full">
+        <section class='flex flex-col md:flex-row lg:flex-row w-full'>
+            <div id="array-wrapper"
+                class='container flex w-full md:w-screen lg:w-2/3 p-5 h-[32rem] origin-center rotate-180'>
                 <!-- array bars will be here -->
             </div>
-            <div id='info-wrapper' class='container flex flex-col font-medium text-lg w-1/3 m-5 gap-y-10'>
+            <div id='info-wrapper'
+                class='container flex flex-col font-medium text-lg w-screen md:w-1/3 lg:w-1/3 p-5 gap-y-10'>
                 <div id="info_timeComplexity">
                     <h3 class='font-bold my-5'>Time Complexity</h3>
                     <div class="flex flex-row gap-5">

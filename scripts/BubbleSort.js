@@ -1,7 +1,15 @@
 let bubble = document.getElementById("bubbleSort");
+let mobileBubble = document.getElementById("mobile-bubbleSort");
 bubble.addEventListener("click", bubbleSort);
+mobileBubble.addEventListener("click", mobileBubbleSort);
+
+function mobileBubbleSort() {
+    toggleMenu();
+    bubbleSort();
+}
 
 function bubbleSort() {
+
     //Setting Time complexities
     document.getElementById("Time_Worst").innerText = "O(N^2)";
     document.getElementById("Time_Average").innerText = "Θ(N^2)";

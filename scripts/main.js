@@ -1,9 +1,20 @@
 let arrayContainer = document.getElementById('array-wrapper');
 let arraySizeInput = document.getElementById('array-size');
+let mobileArraySizeInput = document.getElementById('mobile-array-size');
 let arraySize = arraySizeInput.value;
 let arrayDivs= [], arrayDivsHeight = [];
 let arrayShuffle = document.getElementById('array-shuffle');
+let mobileArrayShuffle = document.getElementById('mobile-array-shuffle');
 let arrayUpdateSpeedInput = document.getElementById('array-update-speed');
+
+let mobileMenu = document.getElementById('mobile-menu');
+let mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+
+mobileMenuToggle.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+    mobileMenu.classList.toggle('translate-y-0');
+}
 
 // Function to generate random number.
 const randomNumber = (min, max) => {
@@ -24,12 +35,24 @@ const generateArray = () => {
     }
 }
 
+function mobileGenerateArray() {
+    toggleMenu();
+    generateArray();
+}
+
 const updateArraySize = () => {
     arraySize = arraySizeInput.value;
     generateArray();
 }
 
+function mobileUpdateArraySize() {
+    arraySize = mobileArraySizeInput.value;
+    generateArray();
+}
+
 arrayShuffle.addEventListener("click",generateArray);
+mobileArrayShuffle.addEventListener("click", mobileGenerateArray);
 arraySizeInput.addEventListener("input",updateArraySize);
+mobileArraySizeInput.addEventListener("input", mobileUpdateArraySize);
 
 window.onload = updateArraySize();

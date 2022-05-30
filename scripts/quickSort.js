@@ -1,5 +1,12 @@
 let quick = document.getElementById("quickSort");
+let mobileQuick = document.getElementById("mobile-quickSort");
 quick.addEventListener("click", quickSort);
+mobileQuick.addEventListener("click", mobileQuickSort);
+
+function mobileQuickSort() {
+    toggleMenu();
+    quickSort();
+}
 
 
 function quickSort() {

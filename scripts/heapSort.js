@@ -1,5 +1,12 @@
 let heap = document.getElementById("heapSort");
+let mobileHeap = document.getElementById("mobile-heapSort");
 heap.addEventListener("click", heapSort);
+mobileHeap.addEventListener("click", mobileHeapSort);
+
+function mobileHeapSort() {
+    toggleMenu();
+    heapSort();
+}
 
 function heapSort()
 {

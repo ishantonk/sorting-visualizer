@@ -1,5 +1,12 @@
 let insertion = document.getElementById("insertionSort");
+let mobileInsertion = document.getElementById("mobile-insertionSort");
 insertion.addEventListener("click", insertionSort);
+mobileInsertion.addEventListener("click", mobileInsertionSort);
+
+function mobileInsertionSort() {
+    toggleMenu();
+    insertionSort();
+}
 
 function insertionSort() {
     //Setting Time complexities
